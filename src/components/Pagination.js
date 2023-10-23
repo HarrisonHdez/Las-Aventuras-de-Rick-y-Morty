@@ -24,6 +24,15 @@ const PageButton = styled.button`
   }
 `;
 
+/**
+ * Componente de paginación que muestra botones de navegación entre páginas.
+ *
+ * @component
+ *
+ * @param {number} currentPage - La página actual.
+ * @param {number} totalPages - El número total de páginas.
+ * @param {Function} onPageChange - Función para manejar el cambio de página.
+ */
 export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
 

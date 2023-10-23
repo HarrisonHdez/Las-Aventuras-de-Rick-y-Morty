@@ -1,4 +1,11 @@
-// api.js
+/**
+ * Función asincrónica para buscar y recuperar personajes de la API de Rick y Morty.
+ *
+ * @param {number} page - El número de página de personajes a recuperar.
+ * @returns {Promise<Object[]>} - Una promesa que resuelve en un arreglo de personajes.
+ * @throws {Error} - Se lanza un error si ocurre un problema al recuperar los personajes.
+ */
+
 const BASE_URL = 'https://rickandmortyapi.com/api/';
 
 export async function fetchCharacters(page) {
@@ -14,7 +21,6 @@ export async function fetchCharacters(page) {
     allCharacters = allCharacters.concat(data.results);
   }
 
-  // Filtrar solo los primeros 9 personajes de la página actual
   const startIndex = (page - 1) * resultsPerPage;
   const endIndex = startIndex + resultsPerPage;
   return allCharacters.slice(startIndex, endIndex);

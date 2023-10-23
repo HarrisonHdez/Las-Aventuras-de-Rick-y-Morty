@@ -1,28 +1,47 @@
 import React, { useEffect, useRef } from "react";
 import { Chart } from "chart.js/auto";
 
+/**
+ * Componente de visualización de datos que muestra un gráfico de barras.
+ *
+ * @component
+ *
+ * @param {Object[]} characters - La lista de personajes para generar el gráfico.
+ */
 const DataVisualization = ({ characters }) => {
   const chartRef = useRef(null);
 
   useEffect(() => {
     if (chartRef.current) {
-      // Si ya existe un gráfico, destrúyelo
+      /**
+       * Destruye el gráfico anterior si existe.
+       */
       chartRef.current.destroy();
     }
 
-    // Filtrar los personajes por tipo para contar cuántos hay de cada tipo
+    /**
+     * Calcula el recuento de personajes por tipo.
+     */
     const characterCounts = characters.reduce((counts, character) => {
       const { type } = character;
       counts[type] = (counts[type] || 0) + 1;
       return counts;
     }, {});
 
-    // Obtener los tipos y recuentos como arreglos para usar en el gráfico
+    /**
+     * Obtiene los tipos y los recuentos.
+     */
     const types = Object.keys(characterCounts);
     const counts = types.map((type) => characterCounts[type]);
 
-    // Crear el gráfico de barras
+    /**
+     * Obtiene el contexto del gráfico en el elemento con id "characterChart".
+     */
     const ctx = document.getElementById("characterChart").getContext("2d");
+
+    /**
+     * Crea un nuevo gráfico de barras.
+     */
     chartRef.current = new Chart(ctx, {
       type: "bar",
       data: {
@@ -31,9 +50,8 @@ const DataVisualization = ({ characters }) => {
           {
             label: "Recuento de Personajes por Tipo",
             data: counts,
-            backgroundColor: "rgba(75, 192, 192, 0.5)", // Cambio a verde
-            borderColor: "rgba(75, 192, 192, 1)", // Cambio a verde
-
+            backgroundColor: "rgba(75, 192, 192, 0.5)",
+            borderColor: "rgba(75, 192, 192, 1)",
             borderWidth: 1,
           },
         ],

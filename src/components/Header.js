@@ -12,10 +12,6 @@ export const Header = () => {
             <span className="home__span">Rick y Morty</span>{" "}
           </h1>
 
-          <p className="home__subtitle">
-            Unlock the full potential of your business with our pre-vetted
-            talent pool and advanced tech solutions
-          </p>
 
           <div className="home__buttons"></div>
         </div>

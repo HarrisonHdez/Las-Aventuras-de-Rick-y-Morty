@@ -1,9 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+  --color-primary: #7f00ff;
+  --color-light: #fff;
+  --color-dark: #000;
+}
+
+::-webkit-scrollbar {
+  width: 12px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 
 body {
- min-height: 100vh;
- position: relative;
- background-color: #676767;
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--color-light);
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
 }
 
 .container {
@@ -11,4 +42,3 @@ body {
   width: 90%;
   margin: auto;
 }
-
